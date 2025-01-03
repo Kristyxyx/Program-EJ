@@ -1,0 +1,43 @@
+# Comparison of PennEnviroScreen, EJScreen, and CEJST Methodologies
+
+| **Aspect**                     | **PennEnviroScreen**                                                                                     | **EJScreen**                                                                                                            | **CEJST**                                                                                                                |
+|--------------------------------|----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| **EJ Area Decision Process**   | **Statewide percentile-based scoring:** EJ Areas identified as Top 20% of **Pollution Burden × Population Characteristics** percentile statewide. | **Nationwide percentile ranking:** Combines **Demographic Index × Environmental Percentiles**. EJ Areas flagged if **EJ Index Percentile ≥ 80th**. | **Threshold-based approach:** EJ Areas identified if **Environmental Percentile ≥ 90th** AND **Low Income Percentile ≥ 65th**. Additional rules for tribal lands/surrounded areas. |
+| **Environmental Indicators**   | **19 Sub-indicators**, grouped into **Exposure** (e.g., PM2.5, Ozone, Toxic Water Emissions) and **Effects** (e.g., Flood Risk, Land Remediation). | **13 Sub-indicators**, e.g., PM2.5, Ozone, Diesel PM, Superfund Proximity, Traffic Proximity, Wastewater Discharge.    | **Environmental burdens grouped into 8 categories (e.g., Climate Change, Housing, Legacy Pollution).** Each category has 2-5 sub-indicators. |
+| **Integration of Environmental Indicators** | Weighted **proximity-based scoring** for facilities (e.g., Compressor Stations, Railroads, Hazardous Waste). | Percentile-based scoring (e.g., inverse distance for facility proximity indicators).                                   | Threshold-based Yes/No scoring for proximity-based burdens (e.g., Superfund, Abandoned Mines).                          |
+| **Socioeconomic Indicators**   | **14 Sub-indicators**, e.g., Poverty, Unemployment, Race, Age (<5, >64), Disability, Educational Attainment, Linguistic Isolation.                | **6 Sub-indicators**, e.g., Low Income, People of Color, Limited English, Less than High School Education.            | **1 Socioeconomic indicator per burden category**, e.g., Low Income (≥65th percentile), High School Education (<10%).    |
+|**Integration of Socioeconomic Indicators**| **Demographic factors weighted equally**, contributing to **Population Characteristics score**.         | Combines demographic sub-indicators into **Demographic Index** via Z-score normalization.                             | Socioeconomic burdens treated as binary thresholds (e.g., linguistic isolation ≥ 90th percentile).                      |
+| **Calculation Complexity**     | High: Combines **19 environmental sub-indicators** and **14 socioeconomic sub-indicators** into a **weighted percentile model**. | Medium: Combines **13 environmental sub-indicators** with **6 demographic sub-indicators** into percentile-based indexes. | Low: Threshold-based methodology with simplified Yes/No logic for meeting burdens in **8 categories**.                     |
+|**Complexity Type**| Weighted proximity, statewide percentiles, and annual updates increase computational complexity.        | Percentile-based normalization (national/state-level) adds moderate complexity.                                       | Threshold-based binary decisions significantly reduce calculation complexity.                                            |
+| **Framework Differences**      | **Cumulative impact model:** Calculates a **final score** by multiplying Pollution Burden × Population Characteristics. | **Cumulative percentile model:** Combines demographic and environmental percentiles via Z-scores.                     | **Categorical threshold model:** Identifies EJ Areas based on **independent thresholds** without cumulative scoring.      |
+|**Framework Pros**| **State-specific focus:** Tailored to Pennsylvania; incorporates local issues (e.g., oil/gas wells).    | **Nationwide consistency:** Unified percentile calculations allow national comparison.                                  | **Justice40-targeted:** Explicit focus on Justice40 goals; prioritizes disadvantaged tracts for federal investments.      |
+| **Decision-Making Impact**     | Higher granularity allows for detailed **statewide prioritization** of highly burdened areas.           | Percentile-based scoring captures **relative comparison** across the U.S., useful for federal-level decision-making.    | Threshold approach may **exclude areas** with moderate burdens, but **aligns well with binary Justice40 goals**.         |
+|**Framework Cons**| **Weighted proximity-based metrics** may prioritize urban areas (more facilities) over rural areas.    | National percentiles may over-represent certain burdens in states with fewer facilities (e.g., hazardous waste).       | **Yes/No burden indicators** may miss cumulative impacts or areas with multiple moderate burdens.                        |
+| **Tribal and Surrounded Areas**| Not explicitly addressed.                                                                                 | Not explicitly addressed.                                                                                               | Automatically designates **lands of Federally Recognized Tribes** as disadvantaged. Includes tracts **surrounded by disadvantaged areas if Low Income ≥ 50th percentile**.                                      |
+| **Granularity of Results**     | High: Block group-level data with detailed proximity-based calculations.                                   | High: Block group-level data with percentile-based scoring.                                                             | Medium: Census tract-level data with categorical thresholds.                                                               |
+| **Adaptability**               | State-specific; limited applicability outside Pennsylvania.                                               | Highly flexible for national comparisons.                                                                               | Tailored for Justice40 and federal resource allocation.                                                                   |
+| **Tolerance (Implication Relationships)** | **Most inclusive within Pennsylvania**: Top 20% statewide ensures high tolerance for identifying areas with cumulative burdens. Likely to include areas flagged by both EJScreen and CEJST within Pennsylvania. | **Moderate tolerance nationwide**: Uses percentile-based thresholds (≥80th percentile), potentially stricter than PennEnviroScreen but more inclusive than CEJST for moderate burdens. | **Strictest tolerance**: Binary thresholds (≥90th for environmental burdens, ≥65th for low income) result in stricter inclusion criteria. Areas flagged as EJ Areas by CEJST are likely a subset of those flagged by EJScreen or PennEnviroScreen. |
+
+---
+
+## Horizonal Conclusions
+
+1. **EJ Area Decision Process**:
+   **PennEnviroScreen** relies on a **statewide cumulative impact model**, multiplying pollution and population characteristics scores.
+   **EJScreen** uses a **nationwide cumulative percentile model**, combining environmental and demographic indexes.
+   **CEJST** employs a **binary threshold model**, focusing on categorical burdens and aligning with Justice40 priorities.
+
+2. **Complexity**:
+   **PennEnviroScreen** is the most complex due to weighted proximity calculations and state-specific customization.
+   **EJScreen** has moderate complexity with percentile-based Z-scores for cumulative scoring.
+   **CEJST** is the simplest, using Yes/No thresholds without cumulative calculations.
+
+3. **Decision-Making Differences**:
+   **PennEnviroScreen** provides granular, state-specific results ideal for local prioritization.
+   **EJScreen** enables national-level relative comparisons, highlighting disparities across states.
+   **CEJST** focuses on binary decisions, which may exclude areas with moderate burdens but align better with Justice40 investment goals.
+
+4. **Framework Adaptability**:
+   **PennEnviroScreen** is limited to Pennsylvania-specific contexts and datasets.
+   **EJScreen** offers the most nationally consistent framework, suitable for diverse applications.
+   **CEJST**, while less granular, is tailored to federal Justice40 objectives and U.S. territories.
