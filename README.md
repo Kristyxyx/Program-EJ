@@ -1,4 +1,5 @@
 # Project: Equity and Distributed Energy Installations
+
 question: - how has distributed solar grown in PA, and what is the relation to Energy justice areas and retail rates? \\
 request: \\
 1. Collect time series data about residential solar deployments, as well as commercial/utility scale new installations.\
